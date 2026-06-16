@@ -1,0 +1,53 @@
+#include<iostream>
+using namespace std;
+
+class Product
+{
+public:
+    string name;
+    int price,qty;
+
+    int sales()
+    {
+        return price*qty;
+    }
+};
+
+int main()
+{
+    Product s1[2], s2[1];
+
+    s1[0].name="Mobile";
+    s1[0].price=10000;
+    s1[0].qty=2;
+
+    s1[1].name="Headphone";
+    s1[1].price=1000;
+    s1[1].qty=3;
+
+    s2[0].name="Laptop";
+    s2[0].price=50000;
+    s2[0].qty=1;
+
+    int store1=0,store2=0;
+
+    for(int i=0;i<2;i++)
+        store1+=s1[i].sales();
+
+    for(int i=0;i<1;i++)
+        store2+=s2[i].sales();
+
+    int overall=store1+store2;
+
+    cout<<"Store 1 Sales = "<<store1<<endl;
+    cout<<"Store 2 Sales = "<<store2<<endl;
+
+    cout<<"\nOverall Sales = "<<overall;
+
+    if(store1>store2)
+        cout<<"\nBest Store = 1";
+    else
+        cout<<"\nBest Store = 2";
+
+    return 0;
+}
