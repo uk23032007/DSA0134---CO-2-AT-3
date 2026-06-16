@@ -1,0 +1,58 @@
+#include<iostream>
+using namespace std;
+
+class Student
+{
+public:
+    int marks;
+};
+
+int main()
+{
+    int dept = 2;
+
+    int students[2] = {3,4};
+
+    Student d1[3], d2[4];
+
+    d1[0].marks = 80;
+    d1[1].marks = 65;
+    d1[2].marks = 40;
+
+    d2[0].marks = 90;
+    d2[1].marks = 70;
+    d2[2].marks = 55;
+    d2[3].marks = 30;
+
+    int overallTop = 0;
+
+    int top1 = 0, pass1 = 0;
+    for(int i=0;i<3;i++)
+    {
+        if(d1[i].marks > top1)
+            top1 = d1[i].marks;
+        if(d1[i].marks >= 50)
+            pass1++;
+    }
+
+    int top2 = 0, pass2 = 0;
+    for(int i=0;i<4;i++)
+    {
+        if(d2[i].marks > top2)
+            top2 = d2[i].marks;
+        if(d2[i].marks >= 50)
+            pass2++;
+    }
+
+    overallTop = (top1 > top2) ? top1 : top2;
+
+    cout<<"Department 1 Topper: "<<top1;
+    cout<<"\nPass %: "<<(pass1*100.0)/3;
+
+    cout<<"\n\nDepartment 2 Topper: "<<top2;
+    cout<<"\nPass %: "<<(pass2*100.0)/4;
+
+    cout<<"\n\nOverall Topper: "<<overallTop;
+
+    return 0;
+}
