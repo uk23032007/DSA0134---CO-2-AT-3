@@ -1,0 +1,43 @@
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    int regions=2,candidates=3;
+
+    int votes[2][3]={{100,200,150},
+                     {120,300,250}};
+
+    int total[3]={0};
+
+    for(int i=0;i<regions;i++)
+    {
+        int maxVote=votes[i][0];
+        int winner=1;
+
+        for(int j=0;j<candidates;j++)
+        {
+            total[j]+=votes[i][j];
+
+            if(votes[i][j]>maxVote)
+            {
+                maxVote=votes[i][j];
+                winner=j+1;
+            }
+        }
+
+        cout<<"Region "<<i+1<<" Winner: Candidate "<<winner<<endl;
+    }
+
+    int overallWinner=1;
+
+    for(int i=1;i<candidates;i++)
+    {
+        if(total[i]>total[overallWinner-1])
+            overallWinner=i+1;
+    }
+
+    cout<<"\nOverall Winner: Candidate "<<overallWinner;
+
+    return 0;
+}
